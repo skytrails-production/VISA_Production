@@ -1,0 +1,135 @@
+{% extends "VisaPage/Base/base.html" %}
+{% load static %}
+{% block main-body-content %}
+
+
+
+
+<div class="carrer3-content-ssdc">
+  <div class="container-fluid">
+    {% include "VisaPage/Base/navbar.html" %}
+  </div>
+  {% include "VisaPage/Base/sidenavbar.html" %}
+
+  {% endblock main-body-content %}
+
+  {% block main-content %}
+
+  <!--/////////////////////////////////////landing page ssdc/////////////////////////////////////////-->
+  <div class="blogs1-landing-page" style="width:100% ;">
+    <div class="owl-slider">
+      <div class="row">
+        <div id="carousel3" class="owl-carousel owl " style=" width: 100%;">
+          <div class="col-lg-4" style="width: 100%;">
+            <div class="container-fluid">
+              <div class="row">
+                <!-- First Column -->
+                {% for i in blogs %}
+                <div class="col-md-6">
+                  <div class="latest-img-min">
+                    <img src="{{i.image.url}}" alt="" class="latest-update-imagess" style="height:15rem;" />
+                    <div class="min-read">
+                      <div class="minread-value1">
+                        <img src="{% static " visa/images/ion_time-outline.svg" %}" alt="" style="width: 0px;" />
+                        <div class="min-read content">{{i.read_time}} READ</div>
+                      </div>
+                    </div>
+                  </div>
+
+
+                </div>
+
+                <!-- Second Column -->
+                <div class="col-md-6" style="margin-top: 12px;">
+                  <div class="latest-update-content1">
+                    <div class="latest-update-content11">
+                      <h3 class="workpermit-button">{{i.category}}</h3>
+                      <div class="work-permit-date">{{i.registered_at}}</div>
+
+                    </div>
+                    <div class="latest-update-content12">
+                      <p class="visa-service1">{{i.title}}</p>
+                      <div class="privacy-values">{{i.description}}</div>
+
+                    </div>
+
+
+                  </div>
+                </div>
+                {% endfor %}
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="blogs-options">
+    <a href="{% url "editorblog" %}">
+    <button class="blogs-options-name">Editors Pick</button></a>
+    <a href="{% url "latestblog" %}">
+    <button class="blogs-options-name">Latest News</button></a>
+    <a href="{% url "featuredblog" %}">
+    <button class="blogs-options-name">Featured Articles</button></a>
+
+  </div>
+</div>
+
+
+<div class="latestupdate container">
+    <div class="latest-updateheading">Featured Articles</div>
+
+    <div class="latest-update-option">
+      <!-- <div class="latest-update-option1">
+
+  </div> -->
+      <div class="latest-update-option1">
+        <div class="container">
+        <div class="row">
+          {% for i in featuredblog  %}
+           <div class="col-md-4">
+             <div class="grid-update-1">
+               <div class="latest-img-min">
+                {% if i.image %} 
+                 <img
+                   src="{{i.image.url}}"
+                   alt=""
+                   class="latest-update-image"
+                 />
+                 {% else %}
+                 <img src="{% static "visa/images/image 16.png" %}" alt="" srcset="" class="latest-update-image"
+                 />
+                 {% endif %}
+                 <div class="min-read">
+                   <div class="minread-value1">
+                     <img src="{% static "visa/images/ion_time-outline.svg" %}" alt="" />
+                     <div class="min-read content">{{i.read_time}} READ</div>
+                   </div>
+                 </div>
+               </div>
+               <div class="work-permit-offer">
+               
+                 <div class="work-permit-button">{{i.category}}</div>
+                 <div class="textile-work">{{i.title}}</div>
+                 <div class="read-more-content-icon">
+                  <a href="{% url "blog_details" i.id %}">
+                    <div class="register-now">Read More</div>
+                  </a>
+                  
+                </div>
+               </div>
+             </div>
+           </div>
+           
+           {% endfor %}
+         </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{% endblock main-content %}
