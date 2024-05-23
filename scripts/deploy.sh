@@ -33,7 +33,17 @@ deactivate
 echo "Virtual env 'env' Deactivated !"
 
 echo "Reloading App..."
+
+echo "Listing all gunicorn processes:"
+ps aux | grep gunicorn
+
+echo "Finding gunicorn_visa_project processes:"
+ps aux | grep gunicorn_visa_project | grep -v grep
+
+
 #kill -HUP ps -C gunicorn fch -o pid | head -n 1
+# Extract PIDs and send HUP signal
+echo "Sending HUP signal to PIDs:"
 ps aux |grep gunicorn_visa_project |grep VisaWeb | awk '{ print $2 }' |xargs kill -HUP
 
 echo "Deployment Finished !"
