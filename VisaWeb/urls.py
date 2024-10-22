@@ -5,6 +5,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
 from django.urls import re_path
+
 urlpatterns = [
     re_path("media/(?P<path>.*)$", serve, {"document_root": settings.MEDIA_ROOT}),
     re_path("static/(?P<path>.*)$", serve, {"document_root": settings.STATIC_ROOT}),
