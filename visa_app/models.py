@@ -85,12 +85,11 @@ class Blogs(models.Model):
     
     
    
-class LandingContactUs(models.Model):
+class Landing(models.Model):
     name = models.CharField(max_length=50)
     email = models.EmailField(max_length=50)
     mobile = models.CharField(max_length=20)
     purpose_of_visit = models.CharField(max_length=50)
     destination = models.CharField(max_length=100)
-    
     
     
