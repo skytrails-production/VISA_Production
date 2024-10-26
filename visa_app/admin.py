@@ -1,8 +1,8 @@
 from django.contrib import admin
 from .models import *
 from django.contrib.auth.models import Group,User
-
-
+from import_export.admin import ImportExportModelAdmin
+from .resources import LandingPageResource
 class CvsubmitAdmin(admin.ModelAdmin):
     list_display = ("Name", "email", "contact_no", "country", "job_profile")
 
@@ -38,6 +38,7 @@ class BlogsAdmin(admin.ModelAdmin):
 
 
 class LandingPageAdmin(admin.ModelAdmin):
+    resource_class = LandingPageResource
     list_display = ("name", "email", "mobile",'purpose_of_visit','destination')
 
 
