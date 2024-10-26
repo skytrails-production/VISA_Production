@@ -53,4 +53,4 @@ admin.site.register(demo)
 
 admin.site.unregister(Group)
 admin.site.unregister(User)
-admin.site.unregister(demo)
+
