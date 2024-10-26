@@ -255,8 +255,8 @@ def visa_Services(request):
             return redirect('visa_Services')
         
         
-        # landing_contact = Landing.objects.create(name=name,email=email,mobile=mobile,purpose_of_visit=visit,destination=destination)
-        # landing_contact.save()
+        landing_contact = LandingPage.objects.create(name=name,email=email,mobile=mobile,purpose_of_visit=visit,destination=destination)
+        landing_contact.save()
         messages.success(request,"Send Succesfully....")
 
 
