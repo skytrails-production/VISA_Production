@@ -1,0 +1,152 @@
+{% extends "visaservices/base.html" %}
+{% load static %}
+{% block main-content %}
+
+<div class="container mt-5">
+    <!-- Hero Section with Contact Form -->
+    <section class="hero-section d-flex align-items-center justify-content-between py-5" id="hero-section" style="background: linear-gradient(to right, #4a90e2, #007aff); border-radius: 8px; color: #fff;">
+        <!-- Carousel Section with Fixed Height -->
+        <div id="carouselExample" class="carousel slide" style="width: 60%; max-width: 800px; min-width: 400px;">
+            <div class="carousel-inner" style="height: 400px; overflow: hidden;">
+                <div class="carousel-item active">
+                    <img src="{% static 'images/business1.jpg' %}" class="d-block w-100 rounded" alt="Welcome Image">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/business2.jpg' %}" class="d-block w-100 rounded" alt="Success Image">
+                </div>
+                <div class="carousel-item">
+                    <img src="{% static 'images/business3.jpg' %}" class="d-block w-100 rounded" alt="Clients Image">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+
+        <!-- Contact Form on the Right Side with Fixed Width -->
+        <div class="contact-form bg-white p-4 rounded shadow-sm ms-4" id="contact" style="min-width: 300px; max-width: 35%; border-radius: 8px;">
+            <h2 class="text-center mb-4 text-primary">Contact Us</h2>
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="4" placeholder="Your Message" required></textarea>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Transformation Section -->
+    <section class="transformation-section py-5 bg-light">
+        <div class="text-center mb-5">
+            <h2>How We Transform Your Travel Experience</h2>
+            <p>Our streamlined process takes you from application to approval in three simple steps.</p>
+        </div>
+        <div class="row text-center">
+            <!-- Step 1 -->
+            <div class="col-md-4 mb-4">
+                <div class="step-card p-4 shadow-sm h-100 bg-white rounded">
+                    <div class="step-icon mb-3">
+                        <i class="fa fa-pencil-alt fa-3x text-primary"></i>
+                    </div>
+                    <div class="step-number rounded-circle bg-primary text-white d-inline-block mb-3" style="width: 50px; height: 50px; line-height: 50px;">1</div>
+                    <h5>Step 1: Application</h5>
+                    <p>Start your journey by filling out a simple online application form. We handle all the paperwork for you.</p>
+                </div>
+            </div>
+            <!-- Step 2 -->
+            <div class="col-md-4 mb-4">
+                <div class="step-card p-4 shadow-sm h-100 bg-white rounded">
+                    <div class="step-icon mb-3">
+                        <i class="fa fa-cogs fa-3x text-primary"></i>
+                    </div>
+                    <div class="step-number rounded-circle bg-primary text-white d-inline-block mb-3" style="width: 50px; height: 50px; line-height: 50px;">2</div>
+                    <h5>Step 2: Processing</h5>
+                    <p>Our team reviews and processes your application quickly and securely, ensuring all details are covered.</p>
+                </div>
+            </div>
+            <!-- Step 3 -->
+            <div class="col-md-4 mb-4">
+                <div class="step-card p-4 shadow-sm h-100 bg-white rounded">
+                    <div class="step-icon mb-3">
+                        <i class="fa fa-check-circle fa-3x text-primary"></i>
+                    </div>
+                    <div class="step-number rounded-circle bg-primary text-white d-inline-block mb-3" style="width: 50px; height: 50px; line-height: 50px;">3</div>
+                    <h5>Step 3: Approval</h5>
+                    <p>Once approved, receive your visa and travel with peace of mind. We keep you informed every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Customer Reviews Section -->
+    <section class="customer-reviews-section py-5" style="background-color: #f9f9f9;">
+        <div class="text-center mb-5">
+            <h2>Customer Reviews</h2>
+            <p>See what our clients say about their experience with us.</p>
+        </div>
+        <div class="row">
+            {% for review in reviews %}
+            <div class="col-md-4 mb-4">
+                <div class="review-card p-3 shadow-sm text-center bg-white rounded">
+                    <img src="{% static review.image %}" alt="{{ review.name }}" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                    <h5>{{ review.name }}</h5>
+                    <p>"{{ review.comment }}"</p>
+                    <div class="rating">
+                        {% for i in 1..5 %}
+                            <i class="fa {% if i <= review.rating %}fa-star{% else %}fa-star-half-alt{% endif %} text-warning"></i>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section py-5">
+        <div class="text-center mb-5">
+            <h2>Frequently Asked Questions</h2>
+            <p>Find answers to commonly asked questions about our services.</p>
+        </div>
+        <div class="accordion" id="faqAccordion">
+            {% for faq in faqs %}
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="heading{{ forloop.counter }}">
+                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ forloop.counter }}" aria-expanded="true" aria-controls="collapse{{ forloop.counter }}">
+                        {{ faq.question }}
+                    </button>
+                </h2>
+                <div id="collapse{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" aria-labelledby="heading{{ forloop.counter }}" data-bs-parent="#faqAccordion">
+                    <div class="accordion-body">
+                        {{ faq.answer }}
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <div class="text-center py-5">
+        <button onclick="scrollToHero()" class="btn btn-primary">Contact Us</button>
+    </div>
+</div>
+
+<script>
+    function scrollToHero() {
+        document.getElementById("hero-section").scrollIntoView({ behavior: "smooth" });
+    }
+</script>
+{% endblock main-content %}

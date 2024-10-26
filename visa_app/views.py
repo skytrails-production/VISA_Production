@@ -221,3 +221,7 @@ def appointment(request):
             return HttpResponseRedirect(reverse("visa_home"))
         except:
             pass
+
+
+def visa_Services(request):
+    return render(request,'VisaPage/visaservices.html')

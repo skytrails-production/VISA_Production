@@ -26,6 +26,7 @@ urlpatterns = [
     path("antifraud/", antifraud, name="antifraud"),
     path("termscondition/", termscondition, name="termscondition"),
     path("refundcancellation/", refundcancellation, name="refundcancellation"),
+    path("Visa/Services", visa_Services, name="visa_Services"),
     
     
     
