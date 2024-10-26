@@ -46,7 +46,7 @@ admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(Testimonials, TestimonialsAdmin)
 admin.site.register(Blogs, BlogsAdmin)
-admin.site.register(LandingContactUs,LandingContactUsAdmin)
+# admin.site.register(LandingContactUs,LandingContactUsAdmin)
 
 
 
