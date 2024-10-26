@@ -48,7 +48,7 @@ input[type="number"] {
         background-color: #20b358;
     }
     #carousel-images {
-        height: 425px;
+        height: 450px;
         overflow: hidden;
     }
 
@@ -198,18 +198,24 @@ input[type="number"] {
         </div>
     
         <!-- Contact Form -->
+         
         <div class="contact-form col-12 col-md-4 p-4 rounded shadow bg-white">
+            
             <h2 class="text-center mb-4 text-primary">Contact Us</h2>
+            
+           
             {% if messages %}
-            <div class="alert alert-primary" role="alert">
+            
                 {% for message in messages %}
                     {% if message.tags == 'error' %}
-                        <div class="alert alert-danger">{{ message }}</div>
+                    <h6 class="text-center mb-4 text-danger">{{ message }}</h6>
+                        {% comment %} <div class="alert alert-danger">{{ message }}</div> {% endcomment %}
+
                     {% else %}
-                        <div class="alert alert-success">{{ message }}</div>
+                    <h6 class="text-center mb-4 text-success">{{ message }}</h6>
                     {% endif %}
                 {% endfor %}
-            </div>
+           
         {% endif %}
         
             
