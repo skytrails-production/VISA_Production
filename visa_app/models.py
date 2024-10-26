@@ -93,3 +93,4 @@ class LandingContactUs(models.Model):
     destination = models.CharField(max_length=100)
     
     
+    
