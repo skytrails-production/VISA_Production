@@ -1,8 +1,20 @@
 {% extends "visaservices/base.html" %}
 {% load static %}
+{% block main-body-content %}
+{% include "visaservices/sidenavbar.html" %}
+{% endblock main-body-content %}
 {% block main-content %}
 
 <style>
+    .hero-section {
+        {% comment %} background: linear-gradient(to right, #00c6ff, #0072ff); {% endcomment %}
+        color: #fff;
+        padding-top: 60px;
+        padding-bottom: 60px;
+        position: relative; /* Ensure the whatsapp icon is positioned correctly */
+    }
+    
+
     .whatsapp-icon {
         position: fixed;
         bottom: 20px;
@@ -27,68 +39,128 @@
         height: 425px;
         overflow: hidden;
     }
+
+    .carousel-inner img {
+        border-radius: 10px;
+        filter: brightness(80%);
+    }
+
+    .carousel-item img {
+        transition: transform 0.5s ease;
+    }
+
+    .carousel-item img:hover {
+        transform: scale(1.05);
+    }
   
     
     @media (max-width: 767px) {
         #carousel-images {
-            height: 200px;
+            height: 250px;
         }
     }
+
+    .contact-form {
+        background: #ffffff;
+        color: #333;
+        border-radius: 10px;
+        padding: 30px;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s;
+    }
+
+    .contact-form:hover {
+        transform: translateY(-5px);
+    }
+
+    .contact-form h2 {
+        color: #4e54c8;
+        font-weight: bold;
+    }
+
+    /* Button styling */
+    .btn-primary:hover {
+        background-color: #8f94fb;
+        transform: translateY(-2px);
+    }
+
+    .btn-primary:hover {
+        background-color: #8f94fb;
+    }
+
+    @media (max-width: 767px) {
+        .hero-section {
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+        .contact-form {
+            padding: 20px;
+        }
+    }
+
+    .transformation-section {
+        padding-top: 60px;
+        padding-bottom: 60px;
+        {% comment %} background-color: #f8f9fa; {% endcomment %}
+    }
+    
+    .transformation-section h2 {
+        font-size: 2rem;
+        color: #333;
+    }
+    
+    .transformation-section p.text-muted {
+        font-size: 1rem;
+        color: #666;
+    }
+    
+    .step-card {
+        {% comment %} background: linear-gradient(135deg, #ffffff, #e0e0e0); {% endcomment %}
+        border-radius: 15px;
+        transition: transform 0.3s, box-shadow 0.3s;
+        padding: 40px 20px;
+        position: relative;
+    }
+    
+    .step-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    }
+    
+    .step-icon {
+        color: #007bff;
+        padding: 10px;
+    }
+    
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background: #007bff;
+        line-height: 60px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto;
+        box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
+    }
+    
+    .step-card h5 {
+        font-size: 1.25rem;
+        color: #333;
+        margin-top: 10px;
+    }
+    
+    .step-card p {
+        font-size: 0.95rem;
+        color: #555;
+        margin-top: 10px;
+        line-height: 1.5;
+    }
+    
 </style>
 
 <div class="container mt-5">
     <!-- Hero Section with Contact Form -->
-    {% comment %} <section class="hero-section row align-items-center justify-content-center py-5" id="hero-section">
-        <!-- Carousel Section -->
-        <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
-            <div class="carousel-inner" style="height: 425px; overflow: hidden;">
-                <div class="carousel-item active">
-                  
-                    <img src="https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/732629/pexels-photo-732629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        
-        <!-- Contact Form -->
-        <div class="contact-form bg-light p-4 rounded shadow-sm col-12 col-md-4" id="contact">
-            <h2 class="text-center mb-4">Contact Us</h2>
-            <form>
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Your Mobile" required>
-                </div>
-                
-                <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="purpose of visit" required>
-                </div>
-                <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="Destination" required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section> {% endcomment %}
+{% comment %}     
     <section class="hero-section row align-items-center justify-content-center py-5" id="hero-section">
         <!-- Carousel Section -->
         <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
@@ -138,12 +210,113 @@
                 </div>
             </form>
         </div>
+    </section> {% endcomment %}
+    {% comment %} <section class="hero-section row align-items-center justify-content-center py-5 mb-5" id="hero-section">
+        <!-- Carousel Section -->
+        <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
+            <div class="carousel-inner shadow-lg rounded" id="carousel-images">
+                <div class="carousel-item active">
+                    <img src="https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200" class="d-block w-100 rounded" alt="...">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/732629/pexels-photo-732629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="...">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        
+        <!-- Contact Form -->
+        <div class="contact-form bg-light p-4 rounded shadow col-12 col-md-4" id="contact">
+            <h2 class="text-center mb-4">Contact Us</h2>
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Your Mobile" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Purpose of Visit" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Destination" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </div>
+            </form>
+        </div>
+    </section>
+     {% endcomment %}
+
+     <section class="hero-section row align-items-center justify-content-center py-5 mb-5" id="hero-section">
+        <!-- Carousel Section -->
+        <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
+            <div class="carousel-inner shadow-lg rounded" id="carousel-images">
+                <div class="carousel-item active">
+                    <img src="https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="Travel Image 1">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200" class="d-block w-100 rounded" alt="Travel Image 2">
+                </div>
+                <div class="carousel-item">
+                    <img src="https://images.pexels.com/photos/732629/pexels-photo-732629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="Travel Image 3">
+                </div>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    
+        <!-- Contact Form -->
+        <div class="contact-form col-12 col-md-4 p-4 rounded shadow bg-white">
+            <h2 class="text-center mb-4 text-primary">Contact Us</h2>
+            <form>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Your Name" required>
+                </div>
+                <div class="mb-3">
+                    <input type="email" class="form-control" placeholder="Your Email" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Your Mobile" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Purpose of Visit" required>
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Destination" required>
+                </div>
+                <div class="text-center">
+                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                </div>
+            </form>
+        </div>
     </section>
     
     
+    
     <!-- Transformation Section -->
-    <section class="transformation-section py-5 bg-light">
-        <div class="text-center mb-5">
+    {% comment %} <section class="transformation-section py-5 bg-light">
+        <div class="text-center mb-5 ">
             <h2>How We Transform Your Travel Experience</h2>
             <p>Our streamlined process takes you from application to approval in three simple steps.</p>
         </div>
@@ -182,9 +355,54 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> {% endcomment %}
 
-    <section class="our-services-section py-5 bg-light mt-5">
+    <section class="transformation-section py-5">
+        <div class="text-center mb-5">
+            <h2>How We Transform Your Travel Experience</h2>
+            <p class="text-muted">Our streamlined process takes you from application to approval in three simple steps.</p>
+        </div>
+        <div class="container">
+            <div class="row text-center">
+                <!-- Step 1 -->
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4 shadow-lg rounded">
+                        <div class="step-icon mb-3">
+                            <i class="fa fa-pencil-alt fa-3x text-primary"></i>
+                        </div>
+                        <div class="step-number rounded-circle text-white d-inline-block mb-3">1</div>
+                        <h5 class="font-weight-bold">Step 1: Application</h5>
+                        <p>Start your journey by filling out a simple online application form. We handle all the paperwork for you.</p>
+                    </div>
+                </div>
+                <!-- Step 2 -->
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4 shadow-lg rounded">
+                        <div class="step-icon mb-3">
+                            <i class="fa fa-cogs fa-3x text-primary"></i>
+                        </div>
+                        <div class="step-number rounded-circle text-white d-inline-block mb-3">2</div>
+                        <h5 class="font-weight-bold">Step 2: Processing</h5>
+                        <p>Our team reviews and processes your application quickly and securely, ensuring all details are covered.</p>
+                    </div>
+                </div>
+                <!-- Step 3 -->
+                <div class="col-md-4 mb-4">
+                    <div class="step-card p-4 shadow-lg rounded">
+                        <div class="step-icon mb-3">
+                            <i class="fa fa-check-circle fa-3x text-primary"></i>
+                        </div>
+                        <div class="step-number rounded-circle text-white d-inline-block mb-3">3</div>
+                        <h5 class="font-weight-bold">Step 3: Approval</h5>
+                        <p>Once approved, receive your visa and travel with peace of mind. We keep you informed every step of the way.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section class="our-services-section py-5  mt-5">
       <div class="text-center mb-5">
           <h2>Our Services</h2>
           <p>We offer a range of services to help you navigate your visa process smoothly.</p>
@@ -469,21 +687,22 @@
     </div>
   </section> {% endcomment %}
   
-  <section class="customer-reviews-section py-5">
+  <section class="customer-reviews-section py-5 mt-5">
     <div class="text-center mb-5">
         <h2>Customer Reviews</h2>
         <p>See what our clients say about their experience with us.</p>
     </div>
 
-    <div id="customerReviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+   <div class="container">
+     <div id="customerReviewsCarousel" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
             <!-- First Slide (three cards for larger screens, one card for mobile) -->
             <div class="carousel-item active">
                 <div class="row justify-content-center">
                     <!-- Review 1 -->
                     <div class="col-12 col-md-4 mb-4">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded p-3 shadow-sm text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>John Doe</h5>
                             <p>"The Skytrails made my visa process incredibly easy and quick."</p>
                             <div class="rating">
@@ -497,8 +716,8 @@
                     </div>
                     <!-- Review 2 -->
                     <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded p-3 shadow-sm text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>Jane Smith</h5>
                             <p>"Professional service with great support throughout the process!"</p>
                             <div class="rating">
@@ -512,8 +731,8 @@
                     </div>
                     <!-- Review 3 -->
                     <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded p-3 shadow-sm text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>Mike Johnson</h5>
                             <p>"Highly recommended! They made my visa approval process effortless."</p>
                             <div class="rating">
@@ -589,6 +808,7 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+   </div>
 </section>
 
 
@@ -648,8 +868,8 @@
                 <div class="row justify-content-center">
                     <!-- Review 1 -->
                     <div class="col-12 col-md-4 mb-4">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded shadow-sm  p-3  text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>John Doe</h5>
                             <p>"The Skytrails made my visa process incredibly easy and quick."</p>
                             <div class="rating">
@@ -663,8 +883,8 @@
                     </div>
                     <!-- Review 2 -->
                     <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded shadow-sm p-3 text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>Jane Smith</h5>
                             <p>"Professional service with great support throughout the process!"</p>
                             <div class="rating">
@@ -678,8 +898,8 @@
                     </div>
                     <!-- Review 3 -->
                     <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded shadow-sm p-3  text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>Mike Johnson</h5>
                             <p>"Highly recommended! They made my visa approval process effortless."</p>
                             <div class="rating">
@@ -698,8 +918,8 @@
                 <div class="row justify-content-center">
                     <!-- Review 4 -->
                     <div class="col-12 col-md-4 mb-4">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded p-3 shadow-sm text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>Alice Brown</h5>
                             <p>"The team was very helpful in guiding me through the application process."</p>
                             <div class="rating">
@@ -713,8 +933,8 @@
                     </div>
                     <!-- Review 5 -->
                     <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded p-3 shadow-sm text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>David Wilson</h5>
                             <p>"Amazing service! I received my visa much faster than expected."</p>
                             <div class="rating">
@@ -728,8 +948,8 @@
                     </div>
                     <!-- Review 6 -->
                     <div class="col-12 col-md-4 mb-4 d-none d-md-block">
-                        <div class="review-card p-3 shadow-sm text-center">
-                            <img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
+                        <div class="card rounded p-3 shadow-sm text-center">
+                            <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
                             <h5>Emma Johnson</h5>
                             <p>"Great experience! They handled everything professionally."</p>
                             <div class="rating">
