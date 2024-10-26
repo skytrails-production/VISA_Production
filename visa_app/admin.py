@@ -47,7 +47,7 @@ admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(Testimonials, TestimonialsAdmin)
 admin.site.register(Blogs, BlogsAdmin)
 
-
+admin.site.register(LandingPage)
 
 admin.site.unregister(Group)
 admin.site.unregister(User)
