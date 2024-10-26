@@ -260,8 +260,9 @@ def visa_Services(request):
         messages.success(request,"Send Succesfully....")
 
 
+
         # Proceed with form processing if mobile number is valid
-        print("WORK")
+      
         # Your form processing code here
 
     return render(request, 'VisaPage/visaservices.html')
