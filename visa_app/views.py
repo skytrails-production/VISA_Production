@@ -222,6 +222,46 @@ def appointment(request):
         except:
             pass
 
+from django.contrib import messages
+
+
+# def visa_Services(request):
+#     if request.method == "POST":
+#         print("WORK")
+#         name = request.POST.get("name")
+#         email = request.POST.get("email")
+#         mobile = request.POST.get("mobile")
+#         visit = request.POST.get("visit")
+#         destination = request.POST.get("destination")
+
+#     return render(request,'VisaPage/visaservices.html')
+
+
+import re
+
+from django.contrib import messages
 
 def visa_Services(request):
-    return render(request,'VisaPage/visaservices.html')
+    if request.method == "POST":
+        name = request.POST.get("name")
+        email = request.POST.get("email")
+        mobile = request.POST.get("mobile")
+        visit = request.POST.get("visit")
+        destination = request.POST.get("destination")
+
+        # Mobile number validation: must start with 6-9 and be exactly 10 digits
+        if not re.fullmatch(r'[6-9]\d{9}', mobile):
+            messages.error(request, "Please enter a valid 10-digit mobile number")
+            return redirect('visa_Services')
+        
+        
+        landing_contact = LandingContactUs.objects.create(name=name,email=email,mobile=mobile,purpose_of_visit=visit,destination=destination)
+        landing_contact.save()
+        messages.success(request,"Send Succesfully....")
+
+
+        # Proceed with form processing if mobile number is valid
+        print("WORK")
+        # Your form processing code here
+
+    return render(request, 'VisaPage/visaservices.html')

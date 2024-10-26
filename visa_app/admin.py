@@ -37,11 +37,18 @@ class BlogsAdmin(admin.ModelAdmin):
     )
 
 
+class LandingContactUsAdmin(admin.ModelAdmin):
+    list_display = ("name", "email", "mobile",'purpose_of_visit','destination')
+
+
 admin.site.register(Cvsubmit, CvsubmitAdmin)
 admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
 admin.site.register(Testimonials, TestimonialsAdmin)
 admin.site.register(Blogs, BlogsAdmin)
+admin.site.register(LandingContactUs,LandingContactUsAdmin)
+
+
 
 
 admin.site.unregister(Group)

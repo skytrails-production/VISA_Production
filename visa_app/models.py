@@ -31,7 +31,8 @@ class ContactUs(models.Model):
     visa_services = models.CharField(max_length=50,choices=VISA_SERVICES_CHOICES)
     notes = models.TextField(max_length=200,blank=True, null=True)
     
-
+    class Meta:
+        db_table = 'schedule_appointment'
 class Appointment(models.Model):
     Firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)
@@ -83,4 +84,12 @@ class Blogs(models.Model):
     
     
     
-
+   
+class LandingContactUs(models.Model):
+    name = models.CharField(max_length=50)
+    email = models.EmailField(max_length=50)
+    mobile = models.CharField(max_length=20)
+    purpose_of_visit = models.CharField(max_length=50)
+    destination = models.CharField(max_length=100)
+    
+    

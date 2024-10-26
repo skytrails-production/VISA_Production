@@ -6,6 +6,18 @@
 {% block main-content %}
 
 <style>
+    /* Hides arrows in Chrome, Safari, Edge, and Opera */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Hides arrows in Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
     .hero-section {
         {% comment %} background: linear-gradient(to right, #00c6ff, #0072ff); {% endcomment %}
         color: #fff;
@@ -159,108 +171,7 @@
 </style>
 
 <div class="container mt-5">
-    <!-- Hero Section with Contact Form -->
-{% comment %}     
-    <section class="hero-section row align-items-center justify-content-center py-5" id="hero-section">
-        <!-- Carousel Section -->
-        <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
-            <div class="carousel-inner" id="carousel-images">
-                <div class="carousel-item active">
-                    <img src="https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200" class="d-block w-100" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/732629/pexels-photo-732629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        
-        <!-- Contact Form -->
-        <div class="contact-form bg-light p-4 rounded shadow-sm col-12 col-md-4" id="contact">
-            <h2 class="text-center mb-4">Contact Us</h2>
-            <form>
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Your Mobile" required>
-                </div>
-                
-                <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="purpose of visit" required>
-                </div>
-                <div class="mb-3">
-                  <input type="email" class="form-control" placeholder="Destination" required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section> {% endcomment %}
-    {% comment %} <section class="hero-section row align-items-center justify-content-center py-5 mb-5" id="hero-section">
-        <!-- Carousel Section -->
-        <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
-            <div class="carousel-inner shadow-lg rounded" id="carousel-images">
-                <div class="carousel-item active">
-                    <img src="https://images.pexels.com/photos/450441/pexels-photo-450441.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200" class="d-block w-100 rounded" alt="...">
-                </div>
-                <div class="carousel-item">
-                    <img src="https://images.pexels.com/photos/732629/pexels-photo-732629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="...">
-                </div>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-            </button>
-        </div>
-        
-        <!-- Contact Form -->
-        <div class="contact-form bg-light p-4 rounded shadow col-12 col-md-4" id="contact">
-            <h2 class="text-center mb-4">Contact Us</h2>
-            <form>
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
-                </div>
-                <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Your Mobile" required>
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Purpose of Visit" required>
-                </div>
-                <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Destination" required>
-                </div>
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary w-100">Send Message</button>
-                </div>
-            </form>
-        </div>
-    </section>
-     {% endcomment %}
+ 
 
      <section class="hero-section row align-items-center justify-content-center py-5 mb-5" id="hero-section">
         <!-- Carousel Section -->
@@ -289,28 +200,48 @@
         <!-- Contact Form -->
         <div class="contact-form col-12 col-md-4 p-4 rounded shadow bg-white">
             <h2 class="text-center mb-4 text-primary">Contact Us</h2>
-            <form>
+            <form method="POST">
+                {% csrf_token %}
+                
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Your Name" required>
+                    <input type="text" class="form-control" placeholder="Your Name" name="name" required>
                 </div>
                 <div class="mb-3">
-                    <input type="email" class="form-control" placeholder="Your Email" required>
+                    <input type="email" class="form-control" placeholder="Your Email" name="email" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Your Mobile" required>
+                    {% comment %} <input type="mobile" class="form-control" placeholder="Your Mobile" name="mobile" required> {% endcomment %}
+                    {% comment %} <input type="tel" class="form-control" placeholder="Your Mobile" name="mobile" required pattern="[0-9]*" title="Please enter only digits"> {% endcomment %}
+                    {% comment %} <input type="number" class="form-control" placeholder="Your Mobile" name="mobile" minlength="8" maxlength="2"  required> {% endcomment %}
+                    <input type="number" class="form-control" placeholder="Your Mobile" name="mobile" required 
+                        pattern="\d{10}" title="Please enter a 10-digit mobile number" maxlength="10" 
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
+
+
+
+
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Purpose of Visit" required>
+                    <input type="text" class="form-control" placeholder="Purpose of Visit" name="visit" required>
                 </div>
                 <div class="mb-3">
-                    <input type="text" class="form-control" placeholder="Destination" required>
+                    <input type="text" class="form-control" placeholder="Destination" name="destination" required>
                 </div>
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary w-100">Send Message</button>
                 </div>
             </form>
+           
         </div>
     </section>
+    {% if messages %}
+    <div class="alert alert-primary" role="alert">
+       
+            {% for message in messages %}
+                <div class="alert alert-danger">{{ message }}</div>
+            {% endfor %}
+        </div>
+        {% endif %}
     
     
     
