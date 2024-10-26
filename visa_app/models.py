@@ -84,14 +84,4 @@ class Blogs(models.Model):
     
     
     
-   
-class Landing(models.Model):
-    name = models.CharField(max_length=50)
-    email = models.EmailField(max_length=50)
-    mobile = models.CharField(max_length=20)
-    purpose_of_visit = models.CharField(max_length=50)
-    destination = models.CharField(max_length=100)
-    
-
-class demo(models.Model):
-    name = models.CharField(max_length=100)
+  
