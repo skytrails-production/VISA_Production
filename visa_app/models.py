@@ -38,9 +38,11 @@ class Appointment(models.Model):
     lastname = models.CharField(max_length=50)
     Phone_number = models.CharField(max_length=50)
     Email = models.EmailField()
-    visa_services = models.CharField(max_length=50,choices=VISA_SERVICES_CHOICES)
+    visa_services = models.CharField(max_length=50,choices=VISA_SERVICES_CHOICES,null=True,blank=True)
     notes = models.TextField(max_length=200,blank=True, null=True)
     date = models.DateTimeField()
+    destination = models.CharField(max_length=100,null=True,blank=True)
+    appointment_type = models.CharField(max_length=20,null=True,blank=True)
     
     
 class Testimonials(models.Model):
