@@ -226,7 +226,7 @@
       <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
          <div class="carousel-inner shadow-lg rounded" id="carousel-images">
             <div class="carousel-item active">
-               <img src="{% static "visa/images/Artboard 2LP.webp" %}" class="d-block w-100" style="height:29rem;" alt="Travel Image 1">
+               <img src="{% static "visa/images/1.jpg" %}" class="d-block w-100" style="height:29rem;" alt="Travel Image 1">
             </div>
             <div class="carousel-item">
                <img src="{% static "visa/images/Artboard 6LP.webp" %}" class="d-block w-100" style="height:29rem;"  alt="Travel Image 2">
@@ -566,7 +566,7 @@
          </div>
       </div>
    </section>
-   <!-- Ensure you have Bootstrap JS included in your project for the carousel to function -->
+  
    <!-- FAQ Section -->
    <section class="faq-section py-5">
       <div class="text-center mb-5">
@@ -677,7 +677,7 @@
       <div class="text-center mb-5">
          <img src="{% static "visa/images/did-you-know.png" %}" alt="abc" style="height:5rem;">
       </div>
-      <div id="customerReviewsCarousel" class="carousel slide" data-bs-ride="carousel">
+      <div id="customerReviewsCarousel" class="carousel slide" data-bs-ride="carousel" >
          <div class="carousel-inner">
             <!-- First Slide (three cards for larger screens, one card for mobile) -->
             <div class="carousel-item active">
@@ -718,7 +718,7 @@
                   <!-- Review 4 -->
                   <div class="col-12 col-md-4 mb-4 d-flex">
                      <div class="card rounded p-3 flex-fill h-100 shadow-sm text-center">
-                        {% comment %} <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center> {% endcomment %}
+                        
                         <h5 class="mt-5">India </h5>
                         <p>" India provides an e-Visa for tourists in over 150 countries? It is applied for online and is an effective way to get permission for short visits quite quickly.
                             "</p>
@@ -728,7 +728,7 @@
                   <!-- Review 5 -->
                   <div class="col-12 col-md-4 mb-4 d-flex d-none d-md-block">
                      <div class="card rounded p-3 flex-fill h-100 shadow-sm text-center">
-                        {% comment %} <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center> {% endcomment %}
+                        
                         <h5 class="mt-5">Japan </h5>
                         <p>" Japan has a visa for short-term business activities. This visa allows travelers to attend meetings, conferences, and trade shows without the need for a long-term visa.
                             "</p>
@@ -758,23 +758,7 @@
          <span class="visually-hidden">Next</span>
          </button>
       </div>
-      {% comment %} 
-      <div class="text-center py-5">
-         <button onclick="scrollToHero()" class="btn btn-primary">know more</button>
-      </div>
-      {% endcomment %}
-      {% comment %} 
-      <div class="d-flex justify-content-between align-items-center py-5">
-         <!-- Know More button centered -->
-         <div class="text-center flex-grow-1">
-            <button onclick="scrollToHero()" class="btn btn-primary">Know More</button>
-         </div>
-         <!-- WhatsApp button aligned to the right -->
-         <a href="https://wa.me/+919627466902" target="_blank" class="btn btn-success d-inline-flex align-items-center ms-auto">
-         <i class="fab fa-whatsapp me-2"></i> WhatsApp
-         </a>
-      </div>
-      {% endcomment %}
+      
       <div class="text-center py-5">
          <button onclick="scrollToHero()" class="btn btn-primary">Know More</button>
       </div>
@@ -886,7 +870,9 @@
                </div>
             
          </div>
+         
          <div class="modal-footer">
+            
             {% comment %} <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> {% endcomment %}
             <button type="submit" name="form_two_submit" class="btn btn-primary">Submit</button>
          </div>

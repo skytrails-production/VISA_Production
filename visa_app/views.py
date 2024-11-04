@@ -241,6 +241,7 @@ from django.contrib import messages
 import re
 
 from django.contrib import messages
+from django.http import JsonResponse
 
 def visa_Services(request):
     if request.method == "POST":
@@ -267,6 +268,7 @@ def visa_Services(request):
             # request.session['form_one_message'] = "Form One submitted successfully!"
 
         elif 'form_two_submit' in request.POST:
+            print("okkkkkkkkkkk")
             Firstname = request.POST.get("Firstname")
             lastname = request.POST.get("lastname")
             Phone_number = request.POST.get("mobile")
@@ -277,6 +279,12 @@ def visa_Services(request):
             # Make the datetime object timezone-aware
             date = timezone.make_aware(date)
             online_offline = request.POST.get("fav_language")
+
+            # Mobile number validation: must start with 6-9 and be exactly 10 digits
+            # if not re.fullmatch(r'[6-9]\d{9}', Phone_number):
+            #     # messages.error(request, "Please enter a valid 10-digit mobile number")
+            #     # request.session['valid_mobile_no'] = "Please enter a valid 10-digit mobile number"
+            #     return JsonResponse({"valid_mobile_no": "Please enter a valid 10-digit mobile number"})
             
             try:
                 appointment = Appointment(
@@ -300,8 +308,7 @@ def visa_Services(request):
 
 
 
-        # Proceed with form processing if mobile number is valid
-      
-        # Your form processing code here
     form_two_message = request.session.pop('form_two_message', None)
-    return render(request, 'VisaPage/visaservices.html',{ 'form_two_message': form_two_message,})
+    valid_mobile_no = request.session.pop('valid_mobile_no', None)
+
+    return render(request, 'VisaPage/visaservices.html',{ 'form_two_message': form_two_message,'valid_mobile_no':valid_mobile_no})
