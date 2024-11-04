@@ -17,7 +17,8 @@ class AppointmentAdmin(admin.ModelAdmin):
         "lastname",
         "Phone_number",
         "Email",
-        "visa_services",
+        "destination",
+        "appointment_type",
         "date",
     )
 
@@ -44,7 +45,7 @@ class LandingPageAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 
 # admin.site.register(Cvsubmit, CvsubmitAdmin)
 # admin.site.register(ContactUs, ContactUsAdmin)
-# admin.site.register(Appointment, AppointmentAdmin)
+admin.site.register(Appointment, AppointmentAdmin)
 # admin.site.register(Testimonials, TestimonialsAdmin)
 # admin.site.register(Blogs, BlogsAdmin)
 

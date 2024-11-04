@@ -33,6 +33,7 @@ class ContactUs(models.Model):
     
     class Meta:
         db_table = 'schedule_appointment'
+        
 class Appointment(models.Model):
     Firstname = models.CharField(max_length=50)
     lastname = models.CharField(max_length=50)

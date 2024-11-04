@@ -4,7 +4,8 @@ from django.urls import reverse
 from django.http import HttpResponseRedirect
 from .models import *
 from django.core.exceptions import ValidationError
-
+from django.utils import timezone
+from datetime import datetime
 
 def visa_home(request):
     testimonial = Testimonials.objects.all()
@@ -243,26 +244,60 @@ from django.contrib import messages
 
 def visa_Services(request):
     if request.method == "POST":
-        name = request.POST.get("name")
-        email = request.POST.get("email")
-        mobile = request.POST.get("mobile")
-        visit = request.POST.get("visit")
-        destination = request.POST.get("destination")
+        if 'form_one_submit' in request.POST:
+            print("heloooooooooooo")
+            name = request.POST.get("name")
+            email = request.POST.get("email")
+            mobile = request.POST.get("mobile")
+            visit = request.POST.get("visit")
+            destination = request.POST.get("destination")
 
-        # Mobile number validation: must start with 6-9 and be exactly 10 digits
-        if not re.fullmatch(r'[6-9]\d{9}', mobile):
-            messages.error(request, "Please enter a valid 10-digit mobile number")
-            return redirect('visa_Services')
-        
-        
-        landing_contact = LandingPage.objects.create(name=name,email=email,mobile=mobile,purpose_of_visit=visit,destination=destination)
-        landing_contact.save()
-        messages.success(request,"Send Succesfully....")
+            # Mobile number validation: must start with 6-9 and be exactly 10 digits
+            if not re.fullmatch(r'[6-9]\d{9}', mobile):
+                messages.error(request, "Please enter a valid 10-digit mobile number")
+                return redirect('visa_Services')
+            
+            
+            landing_contact = LandingPage.objects.create(name=name,email=email,mobile=mobile,purpose_of_visit=visit,destination=destination)
+            landing_contact.save()
+            messages.success(request,"Send Successfully....")
+            # request.session['form_one_message'] = "Form One submitted successfully!"
+
+        elif 'form_two_submit' in request.POST:
+            Firstname = request.POST.get("Firstname")
+            lastname = request.POST.get("lastname")
+            Phone_number = request.POST.get("mobile")
+            Email = request.POST.get("Email")
+            destination = request.POST.get("destination")
+            date_str = request.POST.get("date") 
+            date = datetime.strptime(date_str, "%Y-%m-%dT%H:%M")
+            # Make the datetime object timezone-aware
+            date = timezone.make_aware(date)
+            online_offline = request.POST.get("fav_language")
+            
+            try:
+                appointment = Appointment(
+                    Firstname=Firstname,
+                    lastname=lastname,
+                    Phone_number=Phone_number,
+                    Email=Email,
+                    destination=destination,
+                    date=date,
+                    appointment_type=online_offline,
+                )
+                # appointment.full_clean()
+                appointment.save()
+                # messages.success(request,"Appointment book Successfully....")
+                request.session['form_two_message'] = "Appointment book Successfully...."
+            except:
+                pass
+
+
 
 
 
         # Proceed with form processing if mobile number is valid
       
         # Your form processing code here
-
-    return render(request, 'VisaPage/visaservices.html')
+    form_two_message = request.session.pop('form_two_message', None)
+    return render(request, 'VisaPage/visaservices.html',{ 'form_two_message': form_two_message,})

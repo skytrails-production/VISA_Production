@@ -211,6 +211,16 @@
    }
 </style>
 <div class="container mt-5">
+    {% comment %} <h1 class="text-center">helooooooooo</h1> {% endcomment %}
+   
+
+    
+{% if form_two_message %}
+<div class="alert alert-success">
+    {{ form_two_message }}
+</div>
+{% endif %}
+
    <section class="hero-section row align-items-center justify-content-center py-5 mb-5" id="hero-section">
       <!-- Carousel Section -->
       <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
@@ -272,7 +282,7 @@
                <input type="text" class="form-control" placeholder="Destination" name="destination" required>
             </div>
             <div class="text-center">
-               <button type="submit" class="btn btn-primary w-100">Send Message</button>
+               <button type="submit" name="form_one_submit" class="btn btn-primary w-100">Send Message</button>
             </div>
          </form>
       </div>
@@ -955,12 +965,9 @@
                      <label for="number" class="form-label"
                         >Phone Number</label
                         >
-                     <input
-                        type="text"
-                        class="form-control"
-                        id="Phone_number" name="Phone_number"
-                        placeholder="Enter your Phone Number"
-                        required/>
+                        <input type="number" class="form-control" placeholder="Your Mobile" name="mobile" required 
+                        pattern="\d{10}" title="Please enter a 10-digit mobile number" maxlength="10" 
+                        oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
                   </div>
                   <div class="mb-3 col-md-6">
                      <label for="email" class="form-label"
@@ -982,7 +989,7 @@
                      <input
                         type="text"
                         class="form-control"
-                        id="Firstname" name="Firstname"
+                        id="Firstname" name="destination"
                         placeholder="Enter your Destination"
                         required/>
                   </div>
@@ -993,13 +1000,22 @@
                </div>
                <div class="row">
                   <div class="mb-3 col-md-6">
-                     <label for="vehicle1"> Online</label><br>
-                     <input type="radio" id="vehicle2" name="online-offline" onclick="yourFunction('online')">
+                     {% comment %} <label for="vehicle1"> Online</label><br> {% endcomment %}
+                     <label for="html">Online</label><br>
+                     {% comment %} <input type="radio" id="vehicle1" name="online-offline" onclick="yourFunction('online')" value="Online" required> {% endcomment %}
+                     <input type="radio" id="html" name="fav_language" value="Online" onclick="yourFunction('online')" required>
                   </div>
                   <div class="mb-3 col-md-6">
-                     <label for="vehicle1">Offline</label><br>
-                     <input type="radio" id="vehicle2" name="online-offline" onclick="yourFunction('offline')">
-                  </div>
+                     {% comment %} <label for="vehicle2">Offline</label><br> {% endcomment %}
+                     <label for="css">Offline</label><br>
+                     {% comment %} <input type="radio" id="vehicle2" name="online-offline" onclick="yourFunction('offline')" vlaue="Offline" required> {% endcomment %}
+                     <input type="radio" id="css" name="fav_language" value="Offline" onclick="yourFunction('offline')"  required>
+                  </div> 
+                  
+  
+  
+  
+  
                </div>
                <div class="row d-none" id="address-offline">
                   <center class="text-primary">Theskytrails</center>
@@ -1009,7 +1025,7 @@
          </div>
          <div class="modal-footer">
             {% comment %} <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> {% endcomment %}
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <button type="submit" name="form_two_submit" class="btn btn-primary">Submit</button>
          </div>
         </form>
       </div>
