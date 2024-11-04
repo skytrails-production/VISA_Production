@@ -226,13 +226,13 @@
       <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
          <div class="carousel-inner shadow-lg rounded" id="carousel-images">
             <div class="carousel-item active">
-               <img src="{% static "visa/images/Artboard 2LP.png" %}" class="d-block w-100 rounded" alt="Travel Image 1">
+               <img src="{% static "visa/images/Artboard 2LP.webp" %}" class="d-block w-100 rounded" alt="Travel Image 1">
             </div>
             <div class="carousel-item">
-               <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200" class="d-block w-100 rounded" alt="Travel Image 2">
+               <img src="{% static "visa/images/Artboard 6LP.webp" %}" class="d-block w-100 rounded" alt="Travel Image 2">
             </div>
             <div class="carousel-item">
-               <img src="https://images.pexels.com/photos/732629/pexels-photo-732629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="Travel Image 3">
+               <img src="{% static "visa/images/Artboard 5LP.webp" %}" class="d-block w-100 rounded" alt="Travel Image 3">
             </div>
          </div>
          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
@@ -287,112 +287,7 @@
          </form>
       </div>
    </section>
-   {% comment %} 
-   <section class="hero-section row align-items-center justify-content-center py-5 mb-5" id="hero-section">
-      <!-- Carousel Section -->
-      <div id="carouselExample" class="carousel slide col-12 col-md-8 mb-4 mb-md-0" style="max-width: 800px;">
-         <div class="carousel-inner shadow-lg rounded" id="carousel-images">
-            <div class="carousel-item active">
-               <img src="{% static "visa/images/Artboard 2LP.png" %}" class="d-block w-100 rounded" alt="Travel Image 1">
-            </div>
-            <div class="carousel-item">
-               <img src="https://images.pexels.com/photos/1271619/pexels-photo-1271619.jpeg?auto=compress&cs=tinysrgb&w=1200" class="d-block w-100 rounded" alt="Travel Image 2">
-            </div>
-            <div class="carousel-item">
-               <img src="https://images.pexels.com/photos/732629/pexels-photo-732629.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" class="d-block w-100 rounded" alt="Travel Image 3">
-            </div>
-         </div>
-         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-         <span class="visually-hidden">Previous</span>
-         </button>
-         <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-         <span class="carousel-control-next-icon" aria-hidden="true"></span>
-         <span class="visually-hidden">Next</span>
-         </button>
-      </div>
-      <!-- Contact Form -->
-      <div class="contact-form col-12 col-md-4 p-4 rounded shadow bg-white">
-         <h2 class="text-center mb-4 text-primary">Contact Us</h2>
-         {% if messages %}
-         {% for message in messages %}
-         {% if message.tags == 'error' %}
-         <h6 class="text-center mb-4 text-danger">{{ message }}</h6>
-         {% else %}
-         <h6 class="text-center mb-4 text-success">{{ message }}</h6>
-         {% endif %}
-         {% endfor %}
-         {% endif %}
-         <form method="POST" autocomplete="off">
-            {% csrf_token %}
-            <div class="mb-3">
-               <input type="text" class="form-control" placeholder="Your Name" name="name" required>
-            </div>
-            <div class="mb-3">
-               <input type="email" class="form-control" placeholder="Your Email" name="email" required>
-            </div>
-            <div class="mb-3">
-               <input type="number" class="form-control" placeholder="Your Mobile" name="mobile" required 
-                  pattern="\d{10}" title="Please enter a 10-digit mobile number" maxlength="10" 
-                  oninput="this.value = this.value.replace(/[^0-9]/g, '').slice(0, 10);">
-            </div>
-            <div class="mb-3">
-               <input type="text" class="form-control" placeholder="Purpose of Visit" name="visit" required>
-            </div>
-            <div class="mb-3">
-               <input type="text" class="form-control" placeholder="Destination" name="destination" required>
-            </div>
-            <div class="text-center">
-               <button type="submit" class="btn btn-primary w-100">Send Message</button>
-            </div>
-         </form>
-      </div>
-   </section>
-   {% endcomment %}
-   <!-- Transformation Section -->
-   {% comment %} 
-   <section class="transformation-section py-5 bg-light">
-      <div class="text-center mb-5 ">
-         <h2>How We Transform Your Travel Experience</h2>
-         <p>Our streamlined process takes you from application to approval in three simple steps.</p>
-      </div>
-      <div class="row text-center">
-         <!-- Step 1 -->
-         <div class="col-md-4 mb-4">
-            <div class="step-card p-4 shadow-sm h-100">
-               <div class="step-icon mb-3">
-                  <i class="fa fa-pencil-alt fa-3x text-primary"></i>
-               </div>
-               <div class="step-number rounded-circle bg-primary text-white d-inline-block mb-3" style="width: 50px; height: 50px; line-height: 50px;">1</div>
-               <h5>Step 1: Application</h5>
-               <p>Start your journey by filling out a simple online application form. We handle all the paperwork for you.</p>
-            </div>
-         </div>
-         <!-- Step 2 -->
-         <div class="col-md-4 mb-4">
-            <div class="step-card p-4 shadow-sm h-100">
-               <div class="step-icon mb-3">
-                  <i class="fa fa-cogs fa-3x text-primary"></i>
-               </div>
-               <div class="step-number rounded-circle bg-primary text-white d-inline-block mb-3" style="width: 50px; height: 50px; line-height: 50px;">2</div>
-               <h5>Step 2: Processing</h5>
-               <p>Our team reviews and processes your application quickly and securely, ensuring all details are covered.</p>
-            </div>
-         </div>
-         <!-- Step 3 -->
-         <div class="col-md-4 mb-4">
-            <div class="step-card p-4 shadow-sm h-100">
-               <div class="step-icon mb-3">
-                  <i class="fa fa-check-circle fa-3x text-primary"></i>
-               </div>
-               <div class="step-number rounded-circle bg-primary text-white d-inline-block mb-3" style="width: 50px; height: 50px; line-height: 50px;">3</div>
-               <h5>Step 3: Approval</h5>
-               <p>Once approved, receive your visa and travel with peace of mind. We keep you informed every step of the way.</p>
-            </div>
-         </div>
-      </div>
-   </section>
-   {% endcomment %}
+   
    <section class="transformation-section py-5">
       <div class="text-center mb-5">
          <h2>How We Transform Your Travel Experience</h2>
@@ -644,7 +539,7 @@
                      <div class="col-12  col-md-4 mb-4 d-flex d-none d-md-block">
                         <div class="review-card p-3 shadow-sm text-center flex-fill h-100">
                            <img src="{% static "visa/images/customer_review/5.webp" %}" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;">
-                           <h5>Meenakshi Dubey, Varanasi
+                           <h5>Sanjay Dubey, Varanasi
                            </h5>
                            <p>"I faced a lot of challenges with the visa application, but there were moments when it all felt hopeless. Luckily, The Skytrails were very patient and responsive. They helped me overcome these difficulties, and though it got off to a bad start, it all worked out well in the end-my visa was approved, and I could make the trip as planned."</p>
                            <div class="rating">
@@ -789,47 +684,30 @@
                <div class="row d-flex justify-content-center">
                   <!-- Review 1 -->
                   <div class="col-12 col-md-4 mb-4 d-flex">
-                     <div class="card rounded shadow-sm  p-3 flex-fill h-100 text-center">
-                        <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
-                        <h5>John Doe</h5>
-                        <p>"The Skytrails made my visa process incredibly easy and quick."</p>
-                        <div class="rating">
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star-half-alt text-warning"></i>
-                        </div>
+                     <div class="card  rounded shadow-sm  p-3 flex-fill h-100 text-center">
+                        <h5 class="mt-5">United State</h5>
+                        <p>"US issues more than 185 types of visas. Ranging from a few, which are tourist, student, and employment, among many others, these all fall under specific categories which may be required by international visitors to the United States"</p>
+                        
                      </div>
                   </div>
                   <!-- Review 2 -->
                   <div class="col-12 col-md-4 mb-4 d-flex  d-none d-md-block">
                      <div class="card rounded shadow-sm p-3 flex-fill h-100 text-center">
-                        <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
-                        <h5>Jane Smith</h5>
-                        <p>"Professional service with great support throughout the process!"</p>
-                        <div class="rating">
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                        </div>
+                        {% comment %} <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center> {% endcomment %}
+                        <h5 class="mt-5">Canada </h5>
+                        <p>"Canada has an Express Entry system for skilled workers? This allows eligible immigrants to apply for permanent residency through a streamlined process based on their skills and experience"</p>
+                        
                      </div>
                   </div>
                   <!-- Review 3 -->
                   <div class="col-12 col-md-4 mb-4 d-flex d-none d-md-block">
                      <div class="card rounded shadow-sm p-3 flex-fill h-100  text-center">
-                        <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
-                        <h5>Mike Johnson</h5>
-                        <p>"Highly recommended! They made my visa approval process effortless."</p>
-                        <div class="rating">
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star-half-alt text-warning"></i>
-                        </div>
+                        {% comment %} <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center> {% endcomment %}
+                        <h5 class="mt-5">UK </h5>
+                        <p>"The UK offers a Tier 5 Youth Mobility Scheme visa. It allows young people from certain countries to live and work in the UK for as long as two years.
+
+                            "</p>
+                       
                      </div>
                   </div>
                </div>
@@ -840,46 +718,31 @@
                   <!-- Review 4 -->
                   <div class="col-12 col-md-4 mb-4 d-flex">
                      <div class="card rounded p-3 flex-fill h-100 shadow-sm text-center">
-                        <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
-                        <h5>Alice Brown</h5>
-                        <p>"The team was very helpful in guiding me through the application process."</p>
-                        <div class="rating">
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                        </div>
+                        {% comment %} <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center> {% endcomment %}
+                        <h5>India </h5>
+                        <p>" India provides an e-Visa for tourists in over 150 countries? It is applied for online and is an effective way to get permission for short visits quite quickly.
+                            "</p>
+                        
                      </div>
                   </div>
                   <!-- Review 5 -->
                   <div class="col-12 col-md-4 mb-4 d-flex d-none d-md-block">
                      <div class="card rounded p-3 flex-fill h-100 shadow-sm text-center">
-                        <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
-                        <h5>David Wilson</h5>
-                        <p>"Amazing service! I received my visa much faster than expected."</p>
-                        <div class="rating">
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                        </div>
+                        {% comment %} <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center> {% endcomment %}
+                        <h5 class="mt-5">Japan </h5>
+                        <p>" Japan has a visa for short-term business activities. This visa allows travelers to attend meetings, conferences, and trade shows without the need for a long-term visa.
+                            "</p>
+                        
                      </div>
                   </div>
                   <!-- Review 6 -->
                   <div class="col-12 col-md-4 mb-4 d-flex d-none d-md-block">
                      <div class="card rounded p-3 flex-fill h-100 shadow-sm text-center">
-                        <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center>
-                        <h5>Emma Johnson</h5>
-                        <p>"Great experience! They handled everything professionally."</p>
-                        <div class="rating">
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star text-warning"></i>
-                           <i class="fa fa-star-half-alt text-warning"></i>
-                        </div>
+                        {% comment %} <center><img src="https://cdn.pixabay.com/photo/2024/03/28/19/43/customer-service-8661577_1280.png" alt="Customer" class="rounded-circle mb-3" style="width: 80px; height: 80px;"></center> {% endcomment %}
+                        <h5>Europe </h5>
+                        <p>"The Schengen Visa allows visitors to travel across 27 European countries with one visa. This makes exploring Europe much easier.
+                            "</p>
+                        
                      </div>
                   </div>
                </div>
@@ -938,7 +801,7 @@
                <div class="row">
                   <div class="mb-3 col-md-6">
                      <label for="fullName" class="form-label"
-                        >First name</label
+                        >First name*</label
                         >
                      <input
                         type="text"
@@ -949,7 +812,7 @@
                   </div>
                   <div class="mb-3 col-md-6">
                      <label for="lastName" class="form-label"
-                        >Last name</label
+                        >Last name*</label
                         >
                      <input
                         type="text"
@@ -963,7 +826,7 @@
                <div class="row">
                   <div class="mb-3 col-md-6">
                      <label for="number" class="form-label"
-                        >Phone Number</label
+                        >Phone Number*</label
                         >
                         <input type="number" class="form-control" placeholder="Your Mobile" name="mobile" required 
                         pattern="\d{10}" title="Please enter a 10-digit mobile number" maxlength="10" 
@@ -971,7 +834,7 @@
                   </div>
                   <div class="mb-3 col-md-6">
                      <label for="email" class="form-label"
-                        >Email ID</label
+                        >Email ID*</label
                         >
                      <input
                         type="email"
@@ -984,7 +847,7 @@
                <div class="row mb-3">
                   <div class="mb-3 col-md-6">
                      <label for="fullName" class="form-label"
-                        >Destination</label
+                        >Destination*</label
                         >
                      <input
                         type="text"
@@ -994,13 +857,13 @@
                         required/>
                   </div>
                   <div class="col-md-6">
-                     <label for="date" class="form-label">Date -Time</label>
+                     <label for="date" class="form-label">Date -Time*</label>
                      <input type="datetime-local" name="date" id="date" class="form-control" required>
                   </div>
                </div>
+               <p>Mode of Appointment*</p>
                <div class="row">
                   <div class="mb-3 col-md-6">
-                     {% comment %} <label for="vehicle1"> Online</label><br> {% endcomment %}
                      <label for="html">Online</label><br>
                      {% comment %} <input type="radio" id="vehicle1" name="online-offline" onclick="yourFunction('online')" value="Online" required> {% endcomment %}
                      <input type="radio" id="html" name="fav_language" value="Online" onclick="yourFunction('online')" required>
@@ -1018,8 +881,8 @@
   
                </div>
                <div class="row d-none" id="address-offline">
-                  <center class="text-primary">Theskytrails</center>
-                  <p class="text-danger">Address: Center 2, Office No 254 6th floor F -Block, Gmada Aerocity, Sahibzada Ajit Singh Nagar, Punjab 140603</p>
+                  <center class="text-primary">Please visit below location</center>
+                  <p class="text-danger">Address: <b>Theskytrails </b>Center 2, Office No 254 6th floor F -Block, Gmada Aerocity, Sahibzada Ajit Singh Nagar, Punjab 140603</p>
                </div>
             
          </div>

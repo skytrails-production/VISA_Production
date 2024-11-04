@@ -260,7 +260,10 @@ def visa_Services(request):
             
             landing_contact = LandingPage.objects.create(name=name,email=email,mobile=mobile,purpose_of_visit=visit,destination=destination)
             landing_contact.save()
+            
             messages.success(request,"Send Successfully....")
+            return redirect('visa_Services')
+
             # request.session['form_one_message'] = "Form One submitted successfully!"
 
         elif 'form_two_submit' in request.POST:
@@ -289,6 +292,7 @@ def visa_Services(request):
                 appointment.save()
                 # messages.success(request,"Appointment book Successfully....")
                 request.session['form_two_message'] = "Appointment book Successfully...."
+                return redirect('visa_Services')
             except:
                 pass
 
