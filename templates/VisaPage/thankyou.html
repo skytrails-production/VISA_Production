@@ -17,17 +17,11 @@
 </head>
 <body>
 	<header class="site-header" id="header">
-		<script>
-			fbq('track', 'PageView');
-	
-		</script>
+		
         
         {% if messages %}
          {% for message in messages %}
         
-         {% comment %} 
-         <div class="alert alert-danger">{{ message }}</div>
-         {% endcomment %}
         
          
          <h4 class="text-center mb-4" style="color:green;">{{ message }}</h4>
@@ -41,7 +35,7 @@
 	<div class="main-content">
         <h1 class="site-header__title" data-lead-id="site-header-title">THANK YOU!</h1>
 		<a href="https://visa.theskytrails.com/"><button class="btn btn-primary">Back to Home</button></a>
-		{% comment %} <p class="main-content__body" data-lead-id="main-content-body">Thanks a bunch for filling that out. It means a lot to us, just like you do! We really appreciate you giving us a moment of your time today. Thanks for being you.</p> {% endcomment %}
+		
 	</div>
 
 	<footer class="site-footer" id="footer">
@@ -50,6 +44,25 @@
 
    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+	
+<!-- Meta Pixel Code -->
+<script>
+	!function(f,b,e,v,n,t,s)
+	{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+	n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+	if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+	n.queue=[];t=b.createElement(e);t.async=!0;
+	t.src=v;s=b.getElementsByTagName(e)[0];
+	s.parentNode.insertBefore(t,s)}(window, document,'script',
+	'https://connect.facebook.net/en_US/fbevents.js');
+	fbq('init', '1026744942583826');
+	fbq('track', 'PageView');
+	fbq('track', 'Lead');
+
+	</script>
+	<noscript><img height="1" width="1" style="display:none"
+	src="https://www.facebook.com/tr?id=1026744942583826&ev=PageView&noscript=1"
+	/></noscript>
    
 </body>
 </html>
