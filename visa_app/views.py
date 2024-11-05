@@ -244,6 +244,11 @@ from django.contrib import messages
 from django.http import JsonResponse
 
 def visa_Services(request):
+    
+    return render(request, 'VisaPage/visaservices.html',)
+
+
+def thankyou(request):
     if request.method == "POST":
         if 'form_one_submit' in request.POST:
             print("heloooooooooooo")
@@ -262,8 +267,8 @@ def visa_Services(request):
             landing_contact = LandingPage.objects.create(name=name,email=email,mobile=mobile,purpose_of_visit=visit,destination=destination)
             landing_contact.save()
             
-            messages.success(request,"Send Successfully....")
-            return redirect('visa_Services')
+            messages.success(request,"Your Enquiry has been Submitted and we will get back to you soon.")
+            return redirect('thankyou')
 
             # request.session['form_one_message'] = "Form One submitted successfully!"
 
@@ -299,8 +304,9 @@ def visa_Services(request):
                 # appointment.full_clean()
                 appointment.save()
                 # messages.success(request,"Appointment book Successfully....")
-                request.session['form_two_message'] = "Appointment book Successfully...."
-                return redirect('visa_Services')
+                # request.session['form_two_message'] = "Your message has been sent successfully, our representative contact you soon"
+                messages.success(request,"Your Enquiry has been Submitted and we will get back to you soon.")
+                return redirect('thankyou')
             except:
                 pass
 
@@ -311,4 +317,4 @@ def visa_Services(request):
     form_two_message = request.session.pop('form_two_message', None)
     valid_mobile_no = request.session.pop('valid_mobile_no', None)
 
-    return render(request, 'VisaPage/visaservices.html',{ 'form_two_message': form_two_message,'valid_mobile_no':valid_mobile_no})
+    return render(request,'VisaPage/thankyou.html',{ 'form_two_message': form_two_message,'valid_mobile_no':valid_mobile_no})
