@@ -17,6 +17,7 @@ def visa_home(request):
         latest_products = products[:6]
     else:
         products = []
+        latest_products = []
 
     context = {"testimonial": testimonial, "products": latest_products}
 
