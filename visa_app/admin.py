@@ -48,7 +48,7 @@ class LandingPageAdmin(ImportExportModelAdmin,admin.ModelAdmin):
 # admin.site.register(Cvsubmit, CvsubmitAdmin)
 # admin.site.register(ContactUs, ContactUsAdmin)
 admin.site.register(Appointment, AppointmentAdmin)
-# admin.site.register(Testimonials, TestimonialsAdmin)
+admin.site.register(Testimonials, TestimonialsAdmin)
 # admin.site.register(Blogs, BlogsAdmin)
 
 admin.site.register(LandingPage,LandingPageAdmin)
