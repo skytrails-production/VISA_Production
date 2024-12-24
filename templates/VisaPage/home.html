@@ -8,6 +8,10 @@
        background-size: cover; 
        background-position: center; 
    }
+   /* Hide Carousel Indicators */
+   .carousel-indicators {
+      display: none;
+   }
 </style>
 
 <div class="mainbody-content">
@@ -288,16 +292,14 @@
    </div>
 </div> {% endcomment %}
 
-
-
 <div class="testimonial1">
    <div class="testimonial container">
       <div class="faq-content">Our Visa Success Story</div>
 
       <!-- Bootstrap Carousel with Auto Slide -->
       <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
-         <!-- Carousel Indicators -->
-         <ol class="carousel-indicators">
+         <!-- Carousel Indicators (Hidden) -->
+         <ol class="carousel-indicators" style="display: none;">
             {% for i in testimonial|slice:":|divisibleby:3" %}
             <li data-bs-target="#testimonialCarousel" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}"></li>
             {% endfor %}
@@ -311,25 +313,24 @@
                   <div class="row">
                {% endif %}
 
-               <!-- Image/Video Content -->
-               <div class="col-md-4">
-                  {% if i.file %}
-                     {% if i.file.name|slice:"-4:" == ".mp4" or i.file.name|slice:"-4:" == ".avi" %}
-                        <video controls style="width:100%; height:80%;">
-                           <source src="{{ i.file.url }}" type="video/mp4">
-                           Your browser does not support the video tag.
-                        </video>
+               <!-- Image/Video Content with added margin between cards -->
+               <div class="col-md-4 mb-4"> <!-- Added mb-4 for bottom margin between cards -->
+                  <div class="shadow-lg p-3 mb-5 bg-white rounded">
+                     {% if i.file %}
+                        {% if i.file.name|slice:"-4:" == ".mp4" or i.file.name|slice:"-4:" == ".avi" %}
+                           <video controls style="width:100%; height:80%;">
+                              <source src="{{ i.file.url }}" type="video/mp4">
+                              Your browser does not support the video tag.
+                           </video>
+                        {% else %}
+                           <img src="{{ i.file.url }}" alt="" style="width:100%;height:80%;">
+                        {% endif %}
                      {% else %}
-                        <img src="{{ i.file.url }}" alt="" style="width:100%;height:80%;">
+                        <img src="{% static 'visa/images/banner-img.jpeg' %}" alt="Default Image" style="width:100%;height:80%;">
                      {% endif %}
-                  {% else %}
-                     <img src="{% static 'visa/images/banner-img.jpeg' %}" alt="Default Image" style="width:100%;height:80%;">
-                  {% endif %}
-                  <div class="text" style="margin-top:10px;">
-                     <h5><b>{% if i.name %}{{ i.name }}{% endif %}</b></h5>
-                     {% for _ in "X"|slice:":i.rating" %}
-                     <img src="{% static 'visa/images/Star.svg' %}" alt="Star">
-                     {% endfor %}
+                     <div class="text" style="margin-top:10px;">
+                        <h5><b>{% if i.name %}{{ i.name }}{% endif %}</b></h5>
+                     </div>
                   </div>
                </div>
                
@@ -352,6 +353,7 @@
       </div>
    </div>
 </div>
+
 
 
 <!-- //////////////////////////////Latest Update////////////////////////////////// -->
