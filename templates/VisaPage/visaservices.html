@@ -279,7 +279,15 @@
                <input type="text" class="form-control" placeholder="Purpose of Visit" name="visit" required>
             </div>
             <div class="mb-3">
-               <input type="text" class="form-control" placeholder="Destination" name="destination" required>
+               {% comment %} <input type="text" class="form-control" placeholder="Destination" name="destination" required> {% endcomment %}
+               <select class="form-control" name="destination" id="" style="text-transform: capitalize;" required>
+                  <option value="">Select</option>
+                  <option value="USA">USA B1B2</option>
+                  <option value="UK">UK Tourist Visa</option>
+                  <option value="Schengen">Schengen Tourist Visa</option>
+                  <option value="Canada">Canada Tourist Visa</option>
+                  <option value="Australia">Australia Tourist Visa</option>
+               </select>
             </div>
             <div class="text-center">
                <button type="submit" name="form_one_submit" class="btn btn-primary w-100">Send Message</button>
