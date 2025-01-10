@@ -41,7 +41,7 @@ class BlogsAdmin(admin.ModelAdmin):
 
 class LandingPageAdmin(ImportExportModelAdmin,admin.ModelAdmin):
     resource_class = LandingPageResource
-    list_display = ("name", "email", "mobile",'purpose_of_visit','destination')
+    list_display = ("name", "email", "mobile",'purpose_of_visit','destination','date')
 
 
 
