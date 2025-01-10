@@ -93,3 +93,4 @@ class LandingPage(models.Model):
     mobile = models.CharField(max_length=20)
     purpose_of_visit = models.CharField(max_length=50)
     destination = models.CharField(max_length=100)
+    date = models.DateTimeField(auto_now=True)
